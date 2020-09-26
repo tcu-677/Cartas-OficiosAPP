@@ -1,0 +1,11 @@
+autopep8==1.5.3
+Django==3.0.8
+django-chunked-upload==2.0.0
+django-crispy-forms==1.9.2
+django-http-method==1.1.0
+django-js-asset==1.2.2
+django-markitup==4.0.0
+django-mptt==0.11.0
+pytz==2020.1
+virtualenv==20.0.29
+
