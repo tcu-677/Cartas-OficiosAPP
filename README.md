@@ -5,7 +5,7 @@ Este proyecto sigue el patrón Modelo-Vista-Template.
 
 (ver aquí : https://docs.hektorprofe.net/django/web-personal/patron-mvt-modelo-vista-template/)
 
-Al descargar este repositorio debe seguir los pasos de la siguiente sección despues de haber leído el documento en el siguiente enlance : https://docs.google.com/document/d/1_RzAEx51PmbtBb9QpGnxVg5YEjERllOf94-e4su-jy0/edit?usp=sharing
+Al descargar este repositorio debe seguir los pasos de la siguiente sección después de haber leído el documento en el siguiente enlance : https://docs.google.com/document/d/1_RzAEx51PmbtBb9QpGnxVg5YEjERllOf94-e4su-jy0/edit?usp=sharing
 
 
 ## Pasos de instalación
@@ -49,4 +49,4 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-##### version 1.0
+##### version 1.0 (recuerde que esto es para ambiente de desarrollo)
