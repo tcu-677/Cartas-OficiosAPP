@@ -19,13 +19,18 @@
         <!-- Iconos de google -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         {%endblock %}
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet"> 
+        <!-- Fontawesome icons -->
+        <script src="https://kit.fontawesome.com/542530b5d9.js" crossorigin="anonymous"></script>
+
 
     </head>
     <body>
         <header>
             {% block navbar %}
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">ODD UCR</a>
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <a class="navbar-brand" href="{% url 'oficios-home'%}">ODD UCR</a>
                 <button class="navbar-toggler" type="button"
                     data-toggle="collapse" data-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -42,13 +47,13 @@
                 <div class="navbar-nav align-left">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link">{{ user.get_username }}</a>
+                        <a class="nav-link"> Bienvenido(a) {{ user.get_username }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'oficios-home' %}">Cerrar sesión</a>
+                        <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión <i class="fas fa-sign-out-alt"></i></a>
                     </li>
                     {% else %}
-                    <a class="nav-link" href="{% url 'oficios-home' %}">Iniciar sesión</a>
+                    <a class="nav-link" href="{% url 'login' %}">Iniciar sesión <i class="fas fa-sign-in-alt"></i></a>
                     {% endif %}
                 </div>
 
@@ -56,7 +61,7 @@
             {%endblock%}
         </header>
 
-        <div class="container main mb-4">
+        <div class="">
             {% if messages %}
             {% for message in messages %}
             <div class="alert alert-{{message.tags}}">
@@ -71,10 +76,10 @@
         </div>
 
         <!-- Footer -->
-        <footer class="page-footer font-small bg-dark">
+        <footer class="page-footer font-small bg-white">
             <!-- Copyright -->
-            <div class="footer-copyright text-center py-3 text-white">
-                <small>© {% now "Y" %} Roberto Vargas</small>
+            <div class="footer-copyright text-center py-3">
+                <small class="footer-small">© {% now "Y" %} Roberto Vargas</small>
             </div>
             <!-- Copyright -->
         </footer>

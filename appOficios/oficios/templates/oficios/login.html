@@ -1,0 +1,45 @@
+{% extends "oficios/base.html" %}
+
+{% block content %}
+<div class="wallpaper pt-4">
+
+    <div class="container main mb-1 pb-1 pt-4 row">
+        <div class="jumbotron bg-white-transparent  card pt-4 col-md-8 offset-md-3">
+            <h2 class="text-white h2-login">Iniciar sesión <i class="fas fa-sign-in-alt"></i></h2>
+            <!-- Action result to redirect -->
+            <form class="container row mt-2" method="POST">
+                {% csrf_token %}
+
+                <div class="col-md-6 offset-3 mt-4">
+                    <label class="text-white" for="username">Ingrese su usuario *</label>
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-user"></i></div>
+                      </div>
+                      <input type="text" class="form-control" id="id_username"
+                        name="username" required placeholder="admin">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 offset-3 mt-1 mb-3">
+                    <label class="text-white" for="password">Ingrese su contraseña *</label>
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-lock"></i></div>
+                      </div>
+                      <input type="password" class="form-control" id="id_password"
+                      name="password" placeholder="admin">
+                    </div>
+                  </div>
+
+                {% if form.errors %}
+                <p class="text-danger text-center col-md-12">Ingrese un correo y/o
+                    contraseña válidos.</p>
+                {% endif %}
+                <button type="submit" class="btn btn-ucr col-md-2 offset-5">Entrar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

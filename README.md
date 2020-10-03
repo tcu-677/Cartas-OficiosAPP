@@ -44,6 +44,8 @@ Es impottante mencionar que en este caso se trabajará con sqlite en el ambiente
 python manage.py createsuperuser
 ```
 
+Para acceder a la adminitracion debe ingresar al siguiente enlace : http://localhost:8000/admin
+
 6. Una vez realizados estos pasos puede correr el app con el siguiente comando e ingresar a http://localhost:8000:
 ```
 python manage.py runserver
