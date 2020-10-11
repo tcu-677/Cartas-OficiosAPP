@@ -5,7 +5,7 @@ __pycache__/
 /entorno
 /vscode
 database_conf.py
-/media
+*/media
 *.pdf
 
 # C extensions

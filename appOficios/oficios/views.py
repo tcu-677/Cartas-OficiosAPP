@@ -36,14 +36,12 @@ class OficioCreateView(LoginRequiredMixin, CreateView):
     ]
     template_name_suffix = '_create_form'
 
-
     def form_valid(self, form):
-        print('Pase')
         response = super().form_valid(form)
         messages.success(self.request, "Oficio agregado satisfactoriamente")
         return response
 
-class UpdateOficioView(LoginRequiredMixin, UpdateView):
+class OficioUpdateView(LoginRequiredMixin, UpdateView):
     model = Oficio
     fields = [
         'codigo_de_oficio',
@@ -53,3 +51,22 @@ class UpdateOficioView(LoginRequiredMixin, UpdateView):
         'oficio'
     ]
     template_name_suffix = '_update_form'
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.success(self.request, "Oficio modificado satisfactoriamente")
+        return response
+
+
+# import os
+# from django.conf import settings
+# from django.http import HttpResponse, Http404
+
+# def download(request, path):
+#     file_path = os.path.join(settings.MEDIA_ROOT, path)
+#     if os.path.exists(file_path):
+#         with open(file_path, 'rb') as fh:
+#             response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+#             response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+#             return response
+#     raise Http404

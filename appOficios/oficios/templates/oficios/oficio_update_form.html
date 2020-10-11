@@ -12,24 +12,27 @@
 
 <div class="jumbotron bg-transparent">
     <div class=" mr-0 pr-0"> 
-        <h1 class="mb-0"> <i class="fas fa-plus"></i> Agregar nuevo oficio</h1>
+        <h1 class="mb-0"> <i class="fas fa-edit"></i> Editar oficio {{form.codigo_de_oficio.value}}</h1>
         <div class="row pt-2">
             <div class="col-11">
-                <small class="">Añade un nuevo oficio para darle seguimiento</small>
+                <small class="">Edita la información del oficio a tu gusto</small>
+            </div>
+            <div class="col-1">
+                <a class="btn btn-sm btn-danger" href="{% url 'oficio-update' 1 %} "  title="{% trans 'Eliminar oficio' %}"><i class="fas fa-trash"></i></a>
             </div>
         </div>
         <hr>
   </div>
 
 <div class="pt-1">
-    {% if form.errors %}
-    <p class="text-danger text-center col-12">Ingrese un correo y/o contraseña válidos.</p>
-    {% endif %}
         <form method="POST" enctype="multipart/form-data" >
             {% csrf_token %}
             <fieldset class="pt-4 col-12">
                 <div class="row">
                     <div class="col-12 col-lg-6">
+                        <div class="form-group col-12">
+                            {{ form.codigo_de_oficio|as_crispy_field }}
+                        </div>
                         <div class="form-group col-12">
                             {{ form.unidad_academica|as_crispy_field }}
                         </div>
