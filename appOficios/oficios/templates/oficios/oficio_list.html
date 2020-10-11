@@ -1,0 +1,95 @@
+{% extends 'oficios/base.html' %}
+{% load i18n %}
+{% load static %}
+
+
+
+{% block content %}
+<input type="hidden" value="{% url 'oficios' %}" id="url_page">  
+
+
+
+<div class="bg-light oficios-list animated fadeIn fast">
+
+    <div class="jumbotron bg-transparent">
+        <div class=" mr-0 pr-0"> 
+            <h1 class="mb-0"> </i>Lista de oficios </h1>
+            <div class="row">
+                <div class="col-11">
+                    <small class="pb-1">Oficios existentes para el OdD</small>
+                </div>
+                <div class="col-1">
+                    <a class="btn btn-sm btn-ucr" href="{% url 'oficio-create' %}"  title="{% trans 'Agregar oficio' %}"><i class="fas fa-plus"></i></a>
+                </div>
+            </div>
+            <hr>
+      </div>
+
+    <div class="pt-3">
+
+        {% if object_list|length == 0 %}
+           <h5 class="text-center">No hay oficios para mostrar </h5> 
+           <h5 class="text-center"><i class="fas fa-info-circle"></i></h5>
+
+       {% else %}
+            <table class="table table-bordered text-center">
+                <thead class="">
+                  <tr>
+                    <th scope="col" class="my-table-text">Código de oficio</th>
+                    <th scope="col" class="my-table-text">Unidad académica</th>
+                    <th scope="col" class="my-table-text">Dirigido a</th>
+                    <th scope="col" class="my-table-text">Asunto</th>
+                    <th scope="col" class="my-table-text">Editar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    
+                        {% for oficio in object_list %}
+                        <tr>
+                            <td class="my-table-text"> {{oficio.codigo_de_oficio}} </td>
+                            <td class="my-table-text">{{oficio.unidad_academica}}</td>
+                            <td class="my-table-text">{{oficio.a_quien_se_dirige}}</td>
+                            <td class="my-table-text">{{oficio.asunto|slice:":40"}}</td>
+                            <td>
+                                <a class="btn btn-sm btn-ucr" href="{% url 'oficios' %}"  title="{% trans 'Editar Oficio' %}"><i class="far fa-edit"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                </tbody>
+              </table>
+
+        
+        <div class="mt-4">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                <li class="paginate_button mr-1">
+                    <a href="?page={{ page_obj.previous_page_number }}" class= "btn  btn-sm btn-ucr pag-text"><i class="fas fa-arrow-left"></i></a>
+                </li>
+
+                {% endif %}
+
+                <li class="paginate_button">
+                    <span class="btn  btn-sm btn-ucr current pag-text">
+                        Página {{ page_obj.number }} de {{page_obj.paginator.num_pages }}
+                    </span>
+                </li>
+
+                {% if page_obj.has_next %}
+                <li class="paginate_button ml-1">
+                    <a href="?page={{ page_obj.next_page_number }}" class = "btn  btn-sm btn-ucr pag-text"><i class="fas fa-arrow-right"></i></a>
+                </li>
+                {% endif %}
+            </ul>
+            <!-- <a href="{% url 'oficios-home' %}" class="btn btn-sm btn-ucr current pag-text texta">
+                Volver al inicio
+            </a> -->
+        </div>
+    
+    {%endif%}
+    </div>
+
+
+</div>
+
+
+{% endblock %}

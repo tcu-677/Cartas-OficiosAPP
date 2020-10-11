@@ -13,10 +13,12 @@ body {
     font-size: 16px;
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
+.wallpaper {
     width: 100%;
+    height: 60vh;
+    background-image: url("../img/home-wallpaper.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
 }
 
 .bg-white {
@@ -24,7 +26,12 @@ footer {
 }
 
 footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     padding-top: 1rem;
+    background: #fff;
+    border-top: 1px solid #e1e1e1;
 }
 
 .nav-link,
@@ -34,7 +41,7 @@ footer {
 }
 
 a.navbar-brand {
-    color: #41ade7 !important;
+    color: #2d78a0 !important;
 }
 
 nav {
@@ -80,46 +87,165 @@ nav {
     animation-name: fadeIn;
 }
 
-.main {
-    min-height: 75vh;
-}
-
-.wallpaper {
-    width: 100%;
-    height: 100vh;
-    background-image: url("../img/home-wallpaper.jpg");
-    background-position: top;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+.view-height {
+    min-height: 85vh;
 }
 
 .h1-home {
-    padding-top: 4.5rem;
-    color: white;
+    padding-top: 3.5rem;
+    color: rgb(0, 0, 0);
     font-weight: bold;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
+}
+
+.home-icon {
+    background: #2d78a0;
+    padding: 3rem 3rem;
+    border-radius: 0.5rem;
+    font-size: 2rem;
+    color: #fff;
+    transition: all ease-in-out 0.3s;
+}
+
+.home-icon:hover {
+    transform: scale(1.1);
+}
+.info-line {
+    padding: 2rem 0 6rem 0;
 }
 
 .h3-home,
 .p-home {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
 .bg-white-transparent {
-    background: rgba(0, 0, 0, 0.768) !important;
-    border-radius: 1rem;
+    background: transparent;
+    border: 1px solid #174b66d5 !important;
+    border-radius: 0.4rem;
 }
 
 .btn-ucr {
-    background: #41ade7 !important;
-    color: #fff!important;
+    background: #2d78a0;
+    color: #fff !important;
 }
 
 .btn-ucr:hover {
-    background: #256487 !important;
+    background: #1b475f !important;
 }
 
-.h2-login{
-    border-bottom: 1px solid #fff;
-    padding-bottom: 0.6rem;
+.h5-login {
+    color: #ffffff;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+}
+
+.login-header {
+    padding-top: 1rem;
+    width: 100%;
+    background: #174b66d5;
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
+}
+
+.login-label {
+    color: #174b66d5;
+}
+
+.nav-link {
+    color: rgb(0, 0, 0) !important;
+    border: 3px solid transparent;
+    font-weight: 400;
+}
+
+.nav-link:hover {
+    color: rgb(0, 0, 0) !important;
+    border-bottom: 3px solid #2d78a0;
+}
+
+.no-hover {
+    color: rgb(0, 0, 0) !important;
+    border-bottom: 3px solid transparent !important;
+}
+
+.active-link {
+    border-bottom: 3px solid #2d78a0;
+}
+
+.green-bg {
+    background: rgba(0, 111, 0, 0.303);
+    color: #000;
+}
+
+.my-table-text,
+.pag-text {
+    font-size: 0.85rem;
+}
+
+th.my-table-text {
+    font-weight: 400;
+    color: #215977;
+}
+
+.empty-td {
+    border-right: 1px solid transparent !important;
+}
+
+.btn-oficios-list:hover {
+    background: #fff;
+    color: #1b475f;
+    border: 1px solid #1b475f;
+}
+
+.btn-oficios-list {
+    background: #2d78a0;
+    color: #fff;
+    border: 1px solid transparent;
+}
+
+.oficios-list,
+.oficios-create {
+    min-height: 80vh;
+}
+
+/* background: #2d78a0 !important; */
+
+.pagination {
+    justify-content: center !important;
+}
+
+/* ############# Media queries ############# */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 375px) {
+    .wallpaper {
+        height: 40vh;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    .wallpaper {
+        height: 40vh;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .wallpaper {
+        height: 30vh;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 1024px) {
+    .wallpaper {
+        height: 50vh;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1280px) {
+    .wallpaper {
+        height: 60vh;
+    }
 }

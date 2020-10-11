@@ -1,17 +1,26 @@
 {% extends "oficios/base.html" %}
 
 {% block content %}
-<div class="wallpaper pt-4">
+<input type="hidden" value="{% url 'login' %}" id="url_page">  
 
-    <div class="container main mb-1 pb-1 pt-4 row">
-        <div class="jumbotron bg-white-transparent  card pt-4 col-md-8 offset-md-3">
-            <h2 class="text-white h2-login">Iniciar sesión <i class="fas fa-sign-in-alt"></i></h2>
-            <!-- Action result to redirect -->
-            <form class="container row mt-2" method="POST">
+<div class="bg-light">
+
+  <div class="container">
+    <div class="view-height pt-4 animated fadeIn fast">
+
+      <div class="mb-1 pb-1 pt-4 row">
+  
+          <div class="card bg-white-transparent pl-0 pr-0 col-10 offset-1 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+            <div class="login-header">
+              <h5 class=" h5-login ml-4">Iniciar sesión <i class="fas fa-sign-in-alt"></i></h5>
+            </div>
+  
+            <div class="pl-4 pr-4 mt-3 mb-3">
+              <form class="row mt-0" method="POST">
                 {% csrf_token %}
-
-                <div class="col-md-6 offset-3 mt-4">
-                    <label class="text-white" for="username">Ingrese su usuario *</label>
+  
+                <div class="mt-2 col-12">
+                    <label class="login-label" for="username">Ingrese su usuario *</label>
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-user"></i></div>
@@ -20,9 +29,9 @@
                         name="username" required placeholder="admin">
                     </div>
                   </div>
-
-                  <div class="col-md-6 offset-3 mt-1 mb-3">
-                    <label class="text-white" for="password">Ingrese su contraseña *</label>
+  
+                  <div class="mt-1 mb-3 col-12">
+                    <label class="login-label" for="password">Ingrese su contraseña *</label>
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-lock"></i></div>
@@ -31,15 +40,24 @@
                       name="password" placeholder="admin">
                     </div>
                   </div>
-
+  
                 {% if form.errors %}
-                <p class="text-danger text-center col-md-12">Ingrese un correo y/o
-                    contraseña válidos.</p>
+                <small class="text-danger text-center col-md-12">Ingrese un correo y/o
+                    contraseña válidos.</small>
                 {% endif %}
-                <button type="submit" class="btn btn-ucr col-md-2 offset-5">Entrar</button>
+                <div class="mt-1 mb-3 col-12 text-center">
+                  <button type="submit" class="btn btn-ucr">Entrar</button>
+                </div>
             </form>
-        </div>
-    </div>
-</div>
+            </div>
+  
+              
+          </div>
+  
+      </div>
+  </div>
+  </div>
+  </div>
 
+  
 {% endblock %}

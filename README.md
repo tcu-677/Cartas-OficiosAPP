@@ -31,24 +31,24 @@ pip install -r requirements.txt
 
 Esto hará que usted tenga todas las dependencias necesarias para correr el proyecto.
 
+4. Vaya al archivo database_conf.py.sample en appOficios\appOficios y siga las indicaciones.
 
-4. Correr las migraciones para crear las tablas de autenticación de usuarios en la base de datos especificadas en los modelos. Para esto vaya a la carpeta donde se encuentra el archivo manage.py del proyecto y corra el siguiente comando : 
+5. Corra las migraciones para crear en la base de datps las tablas de autenticación de usuarios y las tablas especificadas en los modelos del proyecto. Para esto vaya a la carpeta donde se encuentra el archivo manage.py del proyecto y corra el siguiente comando : 
 ```
 python manage.py migrate
 ```
-Es impottante mencionar que en este caso se trabajará con sqlite en el ambiente de desarrollo.
+Es importante mencionar que en este caso se trabajará con postgresql en el ambiente de desarrollo.
 
-
-5. Cree un usuario para poder entrar al panel de administración, para esto corra el siguiente comando en la misma ubicación anterior:
+6. Cree un usuario para poder entrar al panel de administración, para esto corra el siguiente comando en la misma ubicación anterior:
 ```
 python manage.py createsuperuser
 ```
 
 Para acceder a la adminitracion debe ingresar al siguiente enlace : http://localhost:8000/admin
 
-6. Una vez realizados estos pasos puede correr el app con el siguiente comando e ingresar a http://localhost:8000:
+7. Una vez realizados estos pasos puede correr el app con el siguiente comando e ingresar a http://localhost:8000:
 ```
 python manage.py runserver
 ```
 
-##### version 1.0 (recuerde que esto es para ambiente de desarrollo)
+##### version 2.0 (recuerde que esto es para ambiente de desarrollo)

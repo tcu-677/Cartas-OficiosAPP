@@ -9,15 +9,14 @@
         {%endblock %}
 
         {%block styles%}
-        <!-- Nuestros estilos -->
-        <link rel="stylesheet" href="{% static 'oficios/styles/styles.css' %}">
         <!-- Estilos de bootstrap -->
         <link rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
             integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
             crossorigin="anonymous">
-        <!-- Iconos de google -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- Nuestros estilos -->
+        <link rel="stylesheet" href="{% static 'oficios/styles/styles.css' %}">
         {%endblock %}
         <!-- Google fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet"> 
@@ -30,7 +29,9 @@
         <header>
             {% block navbar %}
             <nav class="navbar navbar-expand-lg navbar-light bg-white">
-                <a class="navbar-brand" href="{% url 'oficios-home'%}">ODD UCR</a>
+                <a class="navbar-brand ml-3" href="{% url 'oficios-home'%}">
+                    <img src="{% static 'oficios/img/logo.png' %}" alt="" style="width: 110px;">
+                </a>
                 <button class="navbar-toggler" type="button"
                     data-toggle="collapse" data-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -38,22 +39,22 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-link active" href="{% url 'oficios-home'%}">Inicio<span class="sr-only">(current)</span></a>
-                        <a class="nav-link" href="{% url 'oficios-home' %}">Cartas</a>
+                    <div class="navbar-nav" id='navbar'>
+                        <a class="ml-2 nav-link" href="{% url 'oficios-home'%}" id="/">Inicio<span class="sr-only"></span></a>
+                        <a class="ml-2 nav-link" href="{% url 'oficios' %}" id="/oficios">Administración de oficios</a>
                     </div>
                 </div>
                 <!-- Navbar Right Side -->
-                <div class="navbar-nav align-left">
+                <div class="navbar-nav align-left" id="navbar">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link"> Bienvenido(a) {{ user.get_username }}</a>
+                        <a class="ml-2 nav-link no-hover"> Bienvenido(a) {{ user.get_username }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión <i class="fas fa-sign-out-alt"></i></a>
+                        <a class="ml-2 nav-link" href="{% url 'logout' %}">Cerrar sesión <i class="fas fa-sign-out-alt"></i></a>
                     </li>
                     {% else %}
-                    <a class="nav-link" href="{% url 'login' %}">Iniciar sesión <i class="fas fa-sign-in-alt"></i></a>
+                    <a class="ml-2 nav-link" href="{% url 'login' %}" id="/login">Iniciar sesión <i class="fas fa-sign-in-alt"></i></a>
                     {% endif %}
                 </div>
 
@@ -61,7 +62,7 @@
             {%endblock%}
         </header>
 
-        <div class="">
+        <div>
             {% if messages %}
             {% for message in messages %}
             <div class="alert alert-{{message.tags}}">
@@ -76,10 +77,10 @@
         </div>
 
         <!-- Footer -->
-        <footer class="page-footer font-small bg-white">
+        <footer class="page-footer font-small ">
             <!-- Copyright -->
             <div class="footer-copyright text-center py-3">
-                <small class="footer-small">© {% now "Y" %} Roberto Vargas</small>
+                <small class="footer-small">© {% now "Y" %} Desarrollado por Roberto Vargas <i class="fas fa-paw"></i></small>
             </div>
             <!-- Copyright -->
         </footer>
@@ -101,6 +102,8 @@
         </script>
 
         {%block js%}
+        <script src="{% static 'oficios/js/app.js' %}"></script>
+
         {%endblock%}
     </body>
 </html>

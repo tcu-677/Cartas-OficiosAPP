@@ -1,0 +1,12 @@
+# 1. Change the name of this file to database_conf.py 
+# 2. Fill the information with your connection information
+# 3. In the settings.py copy this line : from appOficios.appOficios.database_conf import DB_CONF
+
+DB_CONF = {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'YOUR DB NAME',
+    'USER': 'YOUR USER NAME',
+    'PASSWORD': 'YOUR PASSWORD',
+    'HOST': 'localhost',
+    'PORT': '5432'
+}

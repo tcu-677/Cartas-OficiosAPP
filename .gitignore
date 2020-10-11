@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 /entorno
 /vscode
+database_conf.py
 
 # C extensions
 *.so
