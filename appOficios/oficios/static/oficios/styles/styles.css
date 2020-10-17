@@ -125,8 +125,11 @@ nav {
     border-radius: 0.4rem;
 }
 
-.btn-ucr {
-    background: #2d78a0;
+.btn-ucr,
+#oficios-table_previous,
+#oficios-table_next,
+.paginate_button {
+    background: #2d78a0 !important;
     color: #fff !important;
 }
 
@@ -178,13 +181,17 @@ nav {
 }
 
 .my-table-text,
-.pag-text {
-    font-size: 0.85rem;
+.pag-text,
+label,
+#oficios-table_previous,
+#oficios-table_next,
+.paginate_button {
+    font-size: 0.85rem !important;
 }
 
 th.my-table-text {
-    font-weight: 400;
-    color: #215977;
+    font-weight: 400 !important;
+    color: #215977 !important;
 }
 
 .empty-td {
@@ -212,6 +219,33 @@ th.my-table-text {
 
 .pagination {
     justify-content: center !important;
+}
+
+th,
+#oficios-table {
+    border-bottom: 1px solid transparent !important;
+}
+
+#oficios-table_paginate {
+    margin-top: 0.8rem !important;
+}
+
+#oficios-table_previous,
+#oficios-table_next,
+a.paginate_button {
+    color: #fff !important;
+    padding: 0.2rem 1rem !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: #fff !important;
+    padding: 0.4rem 1.2rem !important;
+    border-radius: 0.2rem;
+}
+
+input[type="search"] {
+    margin: 0 0 1rem 0.2rem !important;
 }
 
 /* ############# Media queries ############# */

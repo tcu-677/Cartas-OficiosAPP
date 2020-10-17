@@ -15,7 +15,7 @@ def update_statistics_create(sender, instance, created, **kwargs):
         if len(code) == 1:
             code = '00' + code
         
-        if len(code) == 2:
+        elif len(code) == 2:
             code = '0' + code
 
         new_code = f'OdD-{code}-{datetime.now().year}'

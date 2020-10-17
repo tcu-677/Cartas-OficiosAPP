@@ -30,7 +30,7 @@
             {% if messages %}
                 {% for message in messages %}
                     {% if message.tags != 'danger' %}
-                        <div class="mb-0">
+                        <div class="mb-2">
                             <div class="alert alert-{{message.tags}} mb-0">
                                 {{message}}
                             </div>
@@ -46,7 +46,7 @@
 
        {% else %}
  
-            <table class="table table-bordered text-center">
+            <table class="table table-bordered text-center" id="oficios-table">
                 <thead class="">
                   <tr>
                     <th scope="col" class="my-table-text">Código de oficio</th>
@@ -73,17 +73,17 @@
                                 <a class="btn btn-sm btn-ucr" href="{% url 'oficio-update' oficio.id %}"  title="{% trans 'Editar Oficio' %}"><i class="far fa-edit"></i></a>
                             </td>
                             <!-- To show the delete option just remove this comment and endcomment tags -->
-                           
+                            {%comment%}
                             <td>
                                 <a class="btn btn-sm btn-danger" href="{% url 'oficio-delete' oficio.id %}"  title="{% trans 'Eliminar Oficio' %}"><i class="fas fa-trash"></i></a>
                             </td>
-                            
+                            {%endcomment%}
                         </tr>
                         {% endfor %}
                 </tbody>
               </table>
 
-        
+              {%comment%}
         <div class="mt-4">
             <ul class="pagination">
                 {% if page_obj.has_previous %}
@@ -109,7 +109,7 @@
                 Volver al inicio
             </a> -->
         </div>
-    
+        {%endcomment%}
     {%endif%}
     </div>
 

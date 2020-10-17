@@ -26,7 +26,7 @@ def home(request):
 
 class OficiosListView(LoginRequiredMixin, ListView):
     model = Oficio
-    paginate_by = 5
+    # paginate_by = 6
 
 
 class OficioCreateView(LoginRequiredMixin, CreateView):
