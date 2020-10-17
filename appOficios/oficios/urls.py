@@ -15,5 +15,5 @@ urlpatterns = [
     path('oficios/<int:pk>/editar',OficioUpdateView.as_view(), name='oficio-update'),
     path('oficios/<int:pk>/eliminar', OficioDeleteView.as_view(), name='oficio-delete'),
     path('oficios/nuevo',OficioCreateView.as_view(), name='oficio-create'),
-    path('oficios/<str:path>/descargar/',download_file,name='oficio-download')
+    path('oficios/<int:id>/descargar/',download_file,name='oficio-download')
 ]

@@ -41,7 +41,7 @@ class OficioCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        messages.success(self.request, "Oficio agregado satisfactoriamente")
+        messages.info(self.request, "Oficio agregado satisfactoriamente")
         return response
 
 class OficioUpdateView(LoginRequiredMixin, UpdateView):
@@ -61,7 +61,6 @@ class OficioUpdateView(LoginRequiredMixin, UpdateView):
         return response
 
 
-
 class OficioDeleteView(LoginRequiredMixin, DeleteView):
     model = Oficio
     success_url = reverse_lazy('oficios')
@@ -72,12 +71,16 @@ class OficioDeleteView(LoginRequiredMixin, DeleteView):
         return response
 
 
-def download_file(request, path):
-    file_path = os.path.join(settings.MEDIA_ROOT, path)
-    print(file_path)
-    if os.path.exists(file_path):
-        with open(file_path, 'rb') as file:
-            response = HttpResponse(file.read(), content_type="application/pdf")
-            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
-            return response
-    raise Http404
+def download_file(request, id):
+    oficio = Oficio.objects.get(pk=id)
+    path = str(oficio.oficio)
+    if path:
+        file_path = os.path.join(settings.MEDIA_ROOT, path)
+        print(file_path)
+        if os.path.exists(file_path):
+            with open(file_path, 'rb') as file:
+                response = HttpResponse(file.read(), content_type="application/pdf")
+                response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+                return response
+    else:
+        raise Http404

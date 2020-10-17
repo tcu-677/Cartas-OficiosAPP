@@ -26,26 +26,26 @@
       </div>
 
     <div class="pt-3">
+        <div class="">
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags != 'danger' %}
+                        <div class="mb-0">
+                            <div class="alert alert-{{message.tags}} mb-0">
+                                {{message}}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            </div>
 
         {% if object_list|length == 0 %}
-           <h5 class="text-center">No hay oficios para mostrar </h5> 
+           <h5 class="text-center mt-3">No hay oficios para mostrar </h5> 
            <h5 class="text-center"><i class="fas fa-info-circle"></i></h5>
 
        {% else %}
-       <div class="">
-        {% if messages %}
-            {% for message in messages %}
-                {% if message.tags != 'danger' %}
-                    <div class="mb-0">
-                        <div class="alert alert-{{message.tags}} mb-0">
-                            {{message}}
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        {% endif %}
-        </div>
-
+ 
             <table class="table table-bordered text-center">
                 <thead class="">
                   <tr>
@@ -65,7 +65,7 @@
                     
                         {% for oficio in object_list %}
                         <tr>
-                            <td class="my-table-text"> <a href="{%url 'oficio-download' oficio.oficio %}">{{oficio.codigo_de_oficio}}</a></td>
+                            <td class="my-table-text">{% if oficio.oficio|length > 0 %} <a href="{%url 'oficio-download' oficio.id %}">{{oficio.codigo_de_oficio}}</a> {%else%}{{oficio.codigo_de_oficio}} {%endif%}</td>
                             <td class="my-table-text">{{oficio.unidad_academica}}</td>
                             <td class="my-table-text">{{oficio.a_quien_se_dirige}}</td>
                             <td class="my-table-text">{{oficio.asunto|slice:":40"}}</td>
@@ -73,11 +73,11 @@
                                 <a class="btn btn-sm btn-ucr" href="{% url 'oficio-update' oficio.id %}"  title="{% trans 'Editar Oficio' %}"><i class="far fa-edit"></i></a>
                             </td>
                             <!-- To show the delete option just remove this comment and endcomment tags -->
-                            {%comment%}
+                           
                             <td>
                                 <a class="btn btn-sm btn-danger" href="{% url 'oficio-delete' oficio.id %}"  title="{% trans 'Eliminar Oficio' %}"><i class="fas fa-trash"></i></a>
                             </td>
-                            {%endcomment%}
+                            
                         </tr>
                         {% endfor %}
                 </tbody>

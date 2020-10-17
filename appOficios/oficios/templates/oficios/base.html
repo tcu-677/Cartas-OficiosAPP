@@ -9,11 +9,14 @@
         {%endblock %}
 
         {%block styles%}
-        <!-- Estilos de bootstrap -->
-        <link rel="stylesheet"
+        <!-- CDN estilos de bootstrap-->
+        <!-- <link rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
             integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-            crossorigin="anonymous">
+            crossorigin="anonymous"> -->
+
+        <!-- Bootstrap local -->
+        <link rel="stylesheet" href="{% static 'oficios/styles/bootstrap/bootstrap.min.css' %}">
 
         <!-- Nuestros estilos -->
         <link rel="stylesheet" href="{% static 'oficios/styles/styles.css' %}">
@@ -87,11 +90,16 @@
             integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
             crossorigin="anonymous">
         </script>
-        <script
+
+        <!-- CDN JS Bootstrap -->
+        <!-- <script
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
             crossorigin="anonymous">
-        </script>
+        </script> -->
+
+        <!-- Bootstrap local -->
+        <script src="{% static 'oficios/js/bootstrap/bootstrap.min.js' %}"></script>
 
         {%block js%}
         <script src="{% static 'oficios/js/app.js' %}"></script>

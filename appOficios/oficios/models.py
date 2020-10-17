@@ -12,28 +12,12 @@ class Oficio(models.Model):
     unidad_academica = models.CharField(verbose_name='Destinatario (ente)' , max_length=500)
     a_quien_se_dirige = models.CharField(verbose_name='Dirigido a (persona)' , max_length=500)
     asunto = models.TextField(verbose_name='Asunto')
-    oficio = models.FileField(verbose_name='Oficio', blank= True)
+    oficio = models.FileField(verbose_name='Oficio', blank= True,default='')
 
     # Function to redirect when an oficio is successfully created
     def get_absolute_url(self):
         return reverse('oficios')
 
-    # Function to save the code
-    def save(self, *args, **kwargs):
-        
-        last_inserted_element_id = Oficio.objects.first().id + 1
-        code = str(last_inserted_element_id)
-
-        if len(code) == 1:
-            code = '00' + code
-        
-        if len(code) == 2:
-            code = '0' + code
-
-        new_code = f'OdD-{code}-{datetime.now().year}'
-        self.codigo_de_oficio = new_code
-        
-        super().save(*args, **kwargs)
 
     class Meta:
         indexes = [Index(fields=['codigo_de_oficio'])]
