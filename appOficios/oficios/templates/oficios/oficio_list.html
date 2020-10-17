@@ -15,11 +15,11 @@
         <div class=" mr-0 pr-0"> 
             <h1 class="mb-0"> </i>Lista de oficios </h1>
             <div class="row">
-                <div class="col-11">
-                    <small class="pb-1">Oficios existentes para el OdD</small>
+                <div class="col-10">
+                    <small class="pb-1">Oficios existentes para el OdD (para descargar el oficio presiona el código)</small>
                 </div>
-                <div class="col-1">
-                    <a class="btn btn-sm btn-ucr" href="{% url 'oficio-create' %}"  title="{% trans 'Agregar oficio' %}"><i class="fas fa-plus"></i></a>
+                <div class="col-2 text-right">
+                    <a class="btn btn-sm btn-ucr" href="{% url 'oficio-create' %}"  title="{% trans 'Agregar oficio' %}"><i class="fas fa-plus"></i> Agregar oficio</a>
                 </div>
             </div>
             <hr>
@@ -54,8 +54,10 @@
                     <th scope="col" class="my-table-text">Dirigido a</th>
                     <th scope="col" class="my-table-text">Asunto</th>
                     <th scope="col" class="my-table-text">Editar</th>
+                    <!-- To show the delete option just remove this comment and endcomment tags -->
+                    {%comment%}
                     <th scope="col" class="my-table-text">Eliminar</th>
-
+                    {%endcomment%}
 
                   </tr>
                 </thead>
@@ -63,17 +65,19 @@
                     
                         {% for oficio in object_list %}
                         <tr>
-                            <td class="my-table-text"> {{oficio.codigo_de_oficio}} </td>
+                            <td class="my-table-text"> <a href="{%url 'oficio-download' oficio.oficio %}">{{oficio.codigo_de_oficio}}</a></td>
                             <td class="my-table-text">{{oficio.unidad_academica}}</td>
                             <td class="my-table-text">{{oficio.a_quien_se_dirige}}</td>
                             <td class="my-table-text">{{oficio.asunto|slice:":40"}}</td>
-
                             <td>
                                 <a class="btn btn-sm btn-ucr" href="{% url 'oficio-update' oficio.id %}"  title="{% trans 'Editar Oficio' %}"><i class="far fa-edit"></i></a>
                             </td>
+                            <!-- To show the delete option just remove this comment and endcomment tags -->
+                            {%comment%}
                             <td>
-                                <a class="btn btn-sm btn-danger" href="{% url 'oficio-update' oficio.id %}"  title="{% trans 'Eliminar Oficio' %}"><i class="fas fa-trash"></i></a>
+                                <a class="btn btn-sm btn-danger" href="{% url 'oficio-delete' oficio.id %}"  title="{% trans 'Eliminar Oficio' %}"><i class="fas fa-trash"></i></a>
                             </td>
+                            {%endcomment%}
                         </tr>
                         {% endfor %}
                 </tbody>

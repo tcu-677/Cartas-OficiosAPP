@@ -9,12 +9,12 @@ from datetime import datetime
 class Oficio(models.Model):
     fecha_de_creacion = models.DateTimeField(auto_now_add=True ,verbose_name='Fecha de creación')
     codigo_de_oficio = models.CharField(verbose_name='Código de oficio' , max_length=500 , unique=True)
-    unidad_academica = models.CharField(verbose_name='Unidad académica' , max_length=500)
-    a_quien_se_dirige = models.CharField(verbose_name='Dirigido a' , max_length=500)
+    unidad_academica = models.CharField(verbose_name='Destinatario (ente)' , max_length=500)
+    a_quien_se_dirige = models.CharField(verbose_name='Dirigido a (persona)' , max_length=500)
     asunto = models.TextField(verbose_name='Asunto')
-    oficio = models.FileField(verbose_name='Oficio')
+    oficio = models.FileField(verbose_name='Oficio', blank= True)
 
-    # Function to redirect when an elector is successfully created
+    # Function to redirect when an oficio is successfully created
     def get_absolute_url(self):
         return reverse('oficios')
 
@@ -33,7 +33,7 @@ class Oficio(models.Model):
         new_code = f'OdD-{code}-{datetime.now().year}'
         self.codigo_de_oficio = new_code
         
-        # super().save(*args, **kwargs)
+        super().save(*args, **kwargs)
 
     class Meta:
         indexes = [Index(fields=['codigo_de_oficio'])]

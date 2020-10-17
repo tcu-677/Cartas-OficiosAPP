@@ -5,7 +5,7 @@ Este proyecto sigue el patrón Modelo-Vista-Template.
 
 (ver aquí : https://docs.hektorprofe.net/django/web-personal/patron-mvt-modelo-vista-template/)
 
-Al descargar este repositorio debe seguir los pasos de la siguiente sección después de haber leído el documento en el siguiente enlance : https://docs.google.com/document/d/1_RzAEx51PmbtBb9QpGnxVg5YEjERllOf94-e4su-jy0/edit?usp=sharing
+Al descargar este repositorio debe seguir los pasos de la siguiente sección después de haber leído el documento en el siguiente enlance : https://docs.google.com/document/d/1_RzAEx51PmbtBb9QpGnxVg5YEjERllOf94-e4su-jy0/edit?usp=sharing o bien en la misma ubicación de este archivo el documento llamado 'Documentación de sistema de administración de cartas u oficios'
 
 
 ## Pasos de instalación
@@ -22,6 +22,11 @@ pip3 install virtualenv
 ```
 .\entorno\Scripts\activate
 ```
+
+En linux se activa así :
+```
+source entorno/bin/activate
+```
 Cuando vea que su consola tiene el nombre del entorno virtual, está activado, para desactivarlo solo escriba la palabra deactivate en la consola. Recuerde siempre correr el entorno virtual para probar el app.
 
 3. Con el entorno virtual activado, vaya a la carpeta donde se encuentra el archivo requirements.txt y con la terminal abierta corra lo siguiente :
@@ -37,18 +42,27 @@ Esto hará que usted tenga todas las dependencias necesarias para correr el proy
 ```
 python manage.py migrate
 ```
-Es importante mencionar que en este caso se trabajará con postgresql en el ambiente de desarrollo.
+Es importante mencionar que en este caso se trabajará con postgresql en el ambiente de desarrollo y lo más recomendable es que sea el mismo en producción.
 
 6. Cree un usuario para poder entrar al panel de administración, para esto corra el siguiente comando en la misma ubicación anterior:
 ```
 python manage.py createsuperuser
 ```
 
-Para acceder a la adminitracion debe ingresar al siguiente enlace : http://localhost:8000/admin
+Para acceder a la administración debe ingresar al siguiente enlace : http://localhost:8000/admin (esto en desarrollo, en producción debe usar su propio host y puertos en lugar de localhost:8000, por ejemplo -> https://myhost:1234/admin)
 
-7. Una vez realizados estos pasos puede correr el app con el siguiente comando e ingresar a http://localhost:8000:
+7. Una vez realizados estos pasos puede correr el app con el siguiente comando e ingresar a http://localhost:8000 (o la dirección asignada para producción):
 ```
 python manage.py runserver
 ```
 
-##### version 2.0 (recuerde que esto es para ambiente de desarrollo)
+## Llevando a producción
+
+Para llevar a producción el app siga las intrucciones en el siguiente en enlace: 
+
+https://blog.desdelinux.net/como-hacer-deployment-de-una-aplicacion-django/
+
+
+Nota: esta aplicación posee la funcionalidad para eliminar oficios, para activarla solo debe ir al archivo oficio_list.html y oficio_update_form.html en la ruta \appOficios\oficios\templates\oficios\ y eliminar los bloques {% comment %} y {% endcomment %}.Además debe ir al archivo home.html y eliminar la línea 48 para quitar la frase de temporalmente no disponible.
+
+##### version 3.0

@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.decorators import login_required
-
+from django.urls import reverse_lazy
 from django.contrib import messages
+
+import os
+from django.conf import settings
+from django.http import HttpResponse, Http404
 
 
 from django.views.generic import(
@@ -23,7 +26,7 @@ def home(request):
 
 class OficiosListView(LoginRequiredMixin, ListView):
     model = Oficio
-    paginate_by = 8
+    paginate_by = 5
 
 
 class OficioCreateView(LoginRequiredMixin, CreateView):
@@ -54,19 +57,27 @@ class OficioUpdateView(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        messages.success(self.request, "Oficio modificado satisfactoriamente")
+        messages.info(self.request, "Oficio modificado satisfactoriamente")
         return response
 
 
-# import os
-# from django.conf import settings
-# from django.http import HttpResponse, Http404
 
-# def download(request, path):
-#     file_path = os.path.join(settings.MEDIA_ROOT, path)
-#     if os.path.exists(file_path):
-#         with open(file_path, 'rb') as fh:
-#             response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
-#             response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
-#             return response
-#     raise Http404
+class OficioDeleteView(LoginRequiredMixin, DeleteView):
+    model = Oficio
+    success_url = reverse_lazy('oficios')
+
+    def delete(self, request, *args, **kwargs):
+        messages.info(self.request, "Oficio eliminado satisfactoriamente")
+        response = super().delete(request, *args, **kwargs)
+        return response
+
+
+def download_file(request, path):
+    file_path = os.path.join(settings.MEDIA_ROOT, path)
+    print(file_path)
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as file:
+            response = HttpResponse(file.read(), content_type="application/pdf")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            return response
+    raise Http404

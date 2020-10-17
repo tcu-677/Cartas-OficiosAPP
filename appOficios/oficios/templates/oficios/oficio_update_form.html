@@ -17,9 +17,11 @@
             <div class="col-11">
                 <small class="">Edita la información del oficio a tu gusto</small>
             </div>
+            {%comment%}
             <div class="col-1">
                 <a class="btn btn-sm btn-danger" href="{% url 'oficio-update' 1 %} "  title="{% trans 'Eliminar oficio' %}"><i class="fas fa-trash"></i></a>
             </div>
+            {%endcomment%}
         </div>
         <hr>
   </div>
@@ -58,7 +60,7 @@
             <div class="form-group text-center pt-3 pr-4">
             <a href="{% url 'oficios' %}" class="btn btn-md mr-2 btn-dark">Volver</a>
 
-            <button class="btn btn-md ml-2 btn-ucr" type="submit"> Agregar</button>
+            <button class="btn btn-md ml-2 btn-ucr" type="submit"> Aceptar</button>
         </div>
          
 
