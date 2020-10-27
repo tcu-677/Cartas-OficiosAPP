@@ -8,7 +8,7 @@ Este proyecto sigue el patrón Modelo-Vista-Template.
 Al descargar este repositorio debe seguir los pasos de la siguiente sección después de haber leído el documento en el siguiente enlance : https://docs.google.com/document/d/1_RzAEx51PmbtBb9QpGnxVg5YEjERllOf94-e4su-jy0/edit?usp=sharing o bien en la misma ubicación de este archivo el documento llamado 'Documentación de sistema de administración de cartas u oficios'
 
 
-## Pasos de instalación
+## Pasos de instalación (para desarrollar en caso de ser necesario)
 
 1. Crear un entorno virtual para trabajar. Debe ir a la carpeta raíz donde está el proyecto, abrir una consola y correr lo siguiente : 
 ```
@@ -58,9 +58,13 @@ python manage.py runserver
 
 ## Llevando a producción
 
-Para llevar a producción el app siga las intrucciones en el siguiente en enlace: 
+Para llevar a producción el app siga las intrucciones en los siguientes en enlaces: 
 
-https://blog.desdelinux.net/como-hacer-deployment-de-una-aplicacion-django/
+Para hacer deploy con https: https://certbot.eff.org/instructions
+
+Para hacer deploy del app en servidor con Linux : http://michal.karzynski.pl/blog/2013/06/09/django-nginx-gunicorn-virtualenv-supervisor/
+
+Siempre es importante leer la documentación oficial : https://docs.djangoproject.com/en/3.1/howto/deployment/
 
 
 Nota: esta aplicación posee la funcionalidad para eliminar oficios, para activarla solo debe ir al archivo oficio_list.html y oficio_update_form.html en la ruta \appOficios\oficios\templates\oficios\ y eliminar los bloques {% comment %} y {% endcomment %}.Además debe ir al archivo home.html y eliminar la línea 48 para quitar la frase de temporalmente no disponible.
