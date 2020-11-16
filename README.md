@@ -5,8 +5,6 @@ Este proyecto sigue el patrón Modelo-Vista-Template.
 
 (ver aquí : https://docs.hektorprofe.net/django/web-personal/patron-mvt-modelo-vista-template/)
 
-Al descargar este repositorio debe seguir los pasos de la siguiente sección después de haber leído el documento en el siguiente enlance : https://docs.google.com/document/d/1_RzAEx51PmbtBb9QpGnxVg5YEjERllOf94-e4su-jy0/edit?usp=sharing o bien en la misma ubicación de este archivo el documento llamado 'Documentación de sistema de administración de cartas u oficios'
-
 
 ## Pasos de instalación (para desarrollar en caso de ser necesario)
 
